@@ -9,7 +9,7 @@ let data = {
 
 
 document.getElementById("button-logout").addEventListener("click", logout);
-document.getElementById("transactions-button"),addEventListener("click", function() {
+document.getElementById("transactions-button").addEventListener("click", function() {
   window.location.href = "transactions.html"
 })
 
@@ -114,7 +114,7 @@ function getCashOut() {
 
   if (cashIn.length) {
     let cashInHtml = "";
-    let limit = 0;
+    let limit = 0
 
     if (cashIn.length > 5) {
       limit = 5;
