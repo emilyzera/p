@@ -17,16 +17,6 @@ document.getElementById("login-form").addEventListener("submite",function (e) {
     if(!account) {
         alert("opps! verifique o usuario ou a senha.")
         return;
-
-    }
-
-    if(account) {
-        if(account.password !== password){
-            alert("opps! verifique o usuario ou a senha.")
-            return;
-    
-        }
-        savesession(email,checkSession);
         
         window.location.href = "home.html";
     }
@@ -48,11 +38,12 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
 
     }
 
-    if(password.length < 4){
+    if (password.length < 4) {
         alert("preencha a senha com no minimo 4 digitos")
         return;
     }
-    saveaccount({
+
+    saveAccount({
         login: email,
         password: password,
         transactions: []
@@ -60,15 +51,13 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
     });
 
     mymodal.hide();
-
-
-    alert("conta criada com sucesso.")
+   alert("conta criada com sucesso.");
 
 });
 
 function checklogged() {
     if(session){
-        sessionStorage.getItem("looged", session);
+        sessionStorage.setItem("looged", session);
         logged = session;
     }
 
@@ -78,12 +67,12 @@ function checklogged() {
     }
 }
 
-function saveaccount(data){
+function saveaccount(data) {
     localStorage.setItem(data.login,JSON.stringify(data));
 
 }
 
-function savesession(data, savesession) {
+function savesession(data, savesession){
     if(savesession){
         localStorage.setItem("session",data);
     }
